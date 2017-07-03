@@ -95,17 +95,19 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+
+/* 
+=============================================================
+mobile
+=============================================================
+*/
+
+
 body {
     font-family: 'Montserrat', sans-serif;
 }
 
-section {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    
-    
-}
+
 
 .container {
     width: 90%;
@@ -114,31 +116,36 @@ section {
 }
 
 #bmcontainer {
-    
+
     width: 100%;
     height: 100vh;
     background-color: #1C1D21;
-    position: fixed;
+    position:fixed;
+    top:0;
+    z-index: 1;
 }
 
 #bodymovin {
     width: 100%;
     height: 100vh;
-    position: fixed;
+    position: static;
+    top:0;
+    z-index: 1;
 }
 
 
 .topbar {
-    display: flex;
     width: 100%;
-    height: 10vh;
+    height: 80px;
     background-color:#1C1D21;
-   
+    position:fixed;
+    top: 0;
     color: white;
     align-items: center;
     justify-content: center;
     padding-top: 20px;
     padding-bottom: 20px;
+    display: flex;
    
 }
 
@@ -175,26 +182,81 @@ section {
  color: #92CDCF;
 }
 
-.portfolio {
-    padding-top: 20px;
+.container {
     width: 100%;
-    height: 80%;
+    display: flex;
+    justify-content: center;
+    margin-top: 160px;
+    
+}
+
+.portfolio {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-between;
+    flex-grow: 1;
+    width: 90%;
+ 
 }
 
 
 
 .portfoliobox {
-    width: 250px;
-    height: 250px;
-  
+    width: 100%;
+    margin-top:5%;
     background-color: #1C1D21;
 }
 
+.portfoliobox:before {
+    content:"";
+    float: left;
+    padding-top: 100%;
+}
 
+/* 
+=============================================================
+medium break
+=============================================================
+*/
+
+@media screen and (min-width: 600px) {
+
+.portfolio {
+    margin-left: 5%;
+}
+ 
+.portfoliobox {
+    width: 45%;
+    margin-top:5%;
+    background-color: #1C1D21;
+}  
+
+ .portfoliobox:nth-child(odd) {
+    margin-right: 5%; 
+}  
+    
+}
+/* 
+=============================================================
+large break
+=============================================================
+*/
+
+@media screen and (min-width: 1500px) {
+    
+ .portfolio {
+    margin-left: 5%;
+}
+ 
+.portfoliobox {
+    width: 21.3%;
+    margin-top:3.3%;
+    background-color: #1C1D21;
+}  
+
+ .portfoliobox:not(:nth-child(4n)) {
+    margin-right: 3.3%; 
+}     
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -205,6 +267,10 @@ section {
 
 .hidden {
     display: none !important;
+}
+
+.show {
+    display: flex;
 }
 
 /*
